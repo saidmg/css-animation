@@ -1,0 +1,226 @@
+  .main-container {
+      position: relative;
+      min-height: 100vh;
+      background: linear-gradient(180deg, rgb(236, 128, 27), rgb(41, 2, 2));
+      /* overflow used for transformation to keep page width same */
+      overflow: hidden;
+  }
+
+  .main-container .header-subtitle {
+    transform: translateY(10rem);
+    opacity: 0;
+    animation: clear 1s 0.7s forwards;
+}
+
+  .spider-web{
+    background-color: transparent; 
+    border:none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+  }
+  .spider-web::after{
+      position: inherit;
+      top: 35%;
+      left: 35%;
+      color: white;
+      content: 'BAIT';
+  }
+
+  #pumpkin{
+      z-index: -10;
+      position: absolute; top: 25%; left: 35%; 
+  }
+  .pumpkin{
+    
+    /* z-index: -100; */
+    animation: surprise 4s ease-in-out forwards;
+  }
+
+  @keyframes surprise {
+      0% {
+          transform: scale(0.5);
+          z-index: -10;
+      }
+      20% {
+        transform: scale(1);
+        z-index: 1;
+      }
+      90% {
+          transform: scale(5);
+          z-index: 1;
+
+      }
+      100% {
+        transform: scale(1);
+        z-index: -1;
+
+      }
+      
+  }
+
+
+  #spider{
+    position: absolute;
+    left: 2%;
+    transform: scale(0) translateY(0vw);
+
+  }
+
+  .spider-down{
+    will-change: transform;
+    animation-name: slide-down;
+    animation-timing-function: linear;
+    animation-fill-mode:forwards;
+    animation-duration: 3s;
+    filter: drop-shadow(1px 1px 1px rgb(158, 158, 152));
+ }
+  /* 
+  .spider-line{
+    border: rgb(114, 112, 109);
+    border: 0.5px solid;
+    border-width: 0 0 0 1px;
+    content: ' ';
+    position: absolute;
+    height: 10px;
+    z-index: 50;
+    top: 5%;
+    left: 4%;
+    color:rgb(82, 74, 74);
+    animation: linedown 3s linear forwards;
+    animation-delay: 2.2s;
+  }
+  .spider-line::before{
+      content: url('./images/spider.png');
+      position: absolute; 
+       top: 70%;
+      left: -160px!important;
+      transform: scale(.2);
+
+  } */
+
+
+   /* @keyframes linedown {
+    0% {
+        height: 0px;
+   }
+    70% {
+        height: 300px;
+       }
+    100% {
+        height: 270px;
+   }
+  } */
+
+  
+  @keyframes slide-down{
+    0% {
+        transform: scale(0.3) translateY(0vw);
+   }
+    70% {
+        transform: scale(1) translateY(25vw);
+       }
+    100% {
+        transform: translateY(22vw)
+   }
+} 
+
+
+  .parallax-end::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgb(97, 4, 4);
+      box-shadow: inset 0px 0px 40px 40px #DBA632;
+
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      animation: slideUp 2s forwards;
+
+      /* leave the rest of the elements but keep the image in place
+      it doesnt work with background-size:cover */
+      /* background-size: 150%; */
+      /* background-attachment: fixed; */
+      /* opacity: 0.2; */
+      /* forwards will freeze the opacity after the slideup is done to the 
+      ending value in the 'to' */
+  }
+
+  .ghost-container::before{
+    content: 'LogicalD';
+    color: rgb(236, 233, 27);
+    font-size: 300%;
+  }
+  .ghost-container::after{
+      content: 'X';
+      color: rgb(236, 233, 27);
+      font-size: 300%;
+  }
+
+  .ghost {
+      animation: float 3s ease-out infinite;
+  }
+
+  /* .shadowFrame {
+      width: 130px;
+      margin-top: 15px;
+      margin-left: 180px;
+  } */
+
+  .shadow {
+      animation: shrink 3s ease-out infinite;
+      transform-origin: center center;
+
+  }
+
+  .shadow ellipse {
+      transform-origin: center center;
+  }
+
+  @keyframes float {
+    50% {
+        transform: translate(0, 20px);
+    }
+}
+
+  @keyframes shrink {
+      0% {
+          width: 90%;
+          margin: 0 5%;
+      }
+
+      50% {
+          width: 60%;
+          margin: 0 18%;
+      }
+
+      100% {
+          width: 90%;
+          margin: 0 5%;
+      }
+  }
+
+  /* better to put keyframes at the bottom */
+  @keyframes slideUp {
+      from {
+          transform: translateY(300px) scale(0);
+          opacity: 1;
+      }
+
+      to {
+          transform: translateY(0);
+          opacity: 0.2;
+      }
+  }
+
+  @keyframes clear {
+      to {
+          opacity: 1;
+          transform: none;
+      }
+
+  }
