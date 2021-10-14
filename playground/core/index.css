@@ -1,0 +1,256 @@
+html,body{
+    margin: 0;
+    padding: 0;
+
+}
+
+.main-container{
+position: relative;
+min-height: 100vh;
+background: linear-gradient(180deg, rgb(104,52,3), rgb(50, 8 ,66));
+overflow: hidden;
+font-family: 'Bree Serif', serif;
+}
+.spider-web{
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+.spider-web::before{
+    content: '----------';
+    color: rgb(122, 119, 119);
+    top: 35%;
+    left: 20%;
+    transform: rotate(75deg);
+    position: absolute;
+}
+.spider-web::after{
+    position: inherit;
+    top: 0%;
+    left: -35%;
+    color: white;
+    transform: scale(.2);
+    content: url('./images/spider.png');
+}
+
+.content{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ghost{
+    animation: float 3s ease-out infinite; 
+}
+
+@keyframes float {
+    50%{
+        transform: translate(0,20px);
+    }
+}
+
+.ghost-container::before{
+    content: 'LogicalD';
+    color: rgb(236,233,27);
+    font-size: 300%;
+}
+
+.ghost-container::after{
+    content: 'x';
+    color: rgb(236,233,27);
+    font-size: 300%;
+}
+
+.main-container .header-subtitle{
+    transform: translateY(10rem);
+    opacity: 0;
+    animation: clear 1s 0.7s forwards;
+}
+
+@keyframes clear {  
+    to{
+        opacity: 1;
+        transform: none;
+    }
+    
+}
+
+.bird{
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/174479/bird-cells-new.svg);
+    background-size: auto 100%;
+    width: 88px;
+    height: 125px;
+    will-change: background-position;
+    animation-name: fly-cycle;
+    animation-timing-function: steps(10);
+    animation-iteration-count: infinite;
+}
+.bird--one{
+    animation-duration: 1s;
+    animation-delay: -0.5s;
+}
+.bird--two{
+    animation-duration: 0.9s;
+    animation-delay: -0.75s;
+}
+.bird--three{
+    animation-duration: 1.25s;
+    animation-delay: -0.25s;
+}
+.bird--four{
+    animation-duration: 1.1s;
+    animation-delay: -0.5s;
+}
+
+.bird-container--one{
+    animation-duration: 15s;
+    animation-delay: 0;
+}
+.bird-container--two{
+    animation-duration: 16s;
+    animation-delay: 1s;
+}
+.bird-container--three{
+    animation-duration: 14.6s;
+    animation-delay: 9.5s;
+}
+.bird-container--four{
+    animation-duration: 16s;
+    animation-delay: 10.25s;
+}
+
+
+@keyframes fly-cycle {
+    100%{
+        background-position: -900px 0;
+    }
+}
+
+.bird-container{
+    position: absolute;
+    top: 20%;
+    left: 0%;
+    transform: scale(0) translateX(-10vw);
+    will-change: transform;
+    animation-name: fly-right-one;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    z-index: 100;
+}
+
+@keyframes fly-right-one {
+    0% {
+        transform: scale(0.3) translateX(-10vw);
+   }
+    10% {
+        transform: translateY(2vh) translateX(10vw) scale(0.4);
+   }
+    20% {
+        transform: translateY(0vh) translateX(30vw) scale(0.5);
+   }
+    30% {
+        transform: translateY(4vh) translateX(50vw) scale(0.6);
+   }
+    40% {
+        transform: translateY(2vh) translateX(70vw) scale(0.6);
+   }
+    50% {
+        transform: translateY(0vh) translateX(90vw) scale(0.6);
+   }
+    60% {
+        transform: translateY(0vh) translateX(110vw) scale(0.6);
+   }
+    100% {
+        transform: translateY(0vh) translateX(110vw) scale(0.6);
+   }
+}
+
+.banner { 
+    cursor: pointer;
+    padding: 0px 40px;
+    max-width: 1200px;
+    margin: 32px auto;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .atropos-banner {
+    width: 100%;
+  }
+  .atropos-banner .atropos-inner {
+    border-radius: 10px;
+  }
+  .atropos-banner img {
+    position: absolute;
+    left: -5%;
+    top: -5%;
+    width: 110%;
+    height: 110%;
+    object-fit: contain;
+    display: block;
+    z-index: 1;
+    transform-style: preserve-3d;
+    pointer-events: none;
+  }
+  .atropos-banner img.atropos-banner-spacer {
+    position: relative;
+    width: 100%;
+    height: auto;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+  }
+  .atropos-banner .atropos-shadow {
+    filter: blur(50px);
+    opacity: 0.5;
+  }
+  .atropos-banner .atropos-highlight {
+    z-index: 100;
+  }
+
+  .border-shadow::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgb(97,4,4);
+      box-shadow: inset 0px 0px 40px 40px #DBA632;
+      animation: slideUp 2s forwards;
+  }
+
+  @keyframes slideUp {
+      from{
+          transform: translateY(300px) scale(0);
+          opacity: 1;
+      }
+      to{
+          transform: translateY(0);
+          opacity: 0.2;
+      }
+  }
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
